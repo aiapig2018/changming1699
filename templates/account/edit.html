@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load blog_tags %}
+
+{% if error_msg %}
+        <p>{{ error_msg }}</p>
+    {% endif %}
+
+
+
+
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper" style="background-color: #ffffff;">
+
+
+
+
+                <div class="container">
+                    <div id="main" class="gradient">
+                            <article class="post" style="border: none;">
+                                <div style="padding: 2em;">
+                                   
+                                    <h4>个人资料修改</h4>
+                                    
+                                </div>
+
+                                
+            						<form action="." method="post" enctype="multipart/form-data">
+            							<div style="padding: 2em;">
+								        {{ user_form.as_p }}
+								        {{ profile_form.as_p }}
+								        {% csrf_token %}
+								        </div>
+								    <input type="submit" value="保存修改">
+								    </form>
+								
+
+				            </article><!--end Post -->
+				        </div><!-- end main -->
+				    </div><!-- end container -->
+
+
+
+</div>
+
+
+{% endblock %}
+

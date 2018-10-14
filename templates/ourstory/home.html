@@ -1,0 +1,82 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    {% if error_msg %}
+        <p>{{ error_msg }}</p>
+    {% endif %}
+ 
+
+   
+
+
+<div class="container">
+        <div id="main" class="gradient">
+            <article class="post" style="border: none;">
+
+                
+                   <div class="row">
+                        <div class="col-md-12">
+                            <div class="_c0qx5fd">黄金眼</div>
+                        </div> 
+                </div>                
+
+                        <!--农田-->  
+                            <section id="section-linemove-1">
+                                    <div style="margin-top: 2px;">
+
+                                                <div class="row">
+                                                    {% for post in post_list %}
+                                                    <a href="{% url 'ourstory_detail' id=post.id %}"> 
+                                                          <div class="col-sm-4 col-md-4" style="padding: 0px 2px !important;">
+                                                            <div class="thumbnail">
+                                                                
+                                                                    <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                                                               
+                                                                <div class="_tags" >
+                                                                        <small class="_tagsa">
+                                                                            <a href="">{{ post.title }}</a>
+                                                                        </small>
+                                                                </div>
+                                                                <div class="_tags2" style="background-color: rgb(255, 255, 255);">
+                                                                        <small class="_tagsa2">
+
+
+                                                                            {{ post.category.name }}
+                                                                           
+                                                                        </small>
+                                                                </div>
+                                                              <div class="caption" style="text-align: left; font-size: .8em; font-family: inherit;">
+                                                                  
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </a>
+                                                    {% empty %}
+                                                        <div class="no-post">暂时还没有发布的文章！</div>
+                                                    {% endfor %}
+                                                </div>
+
+                               
+                            </div>
+                       
+                        </section>
+
+
+
+
+
+
+                
+   
+            </article><!--end Post -->
+        </div><!-- end main -->
+    </div><!-- end container -->
+
+
+
+
+
+{% endblock %}
+

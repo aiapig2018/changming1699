@@ -1,0 +1,150 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% load blog_tags %}
+
+{% if error_msg %}
+        <p>{{ error_msg }}</p>
+    {% endif %}
+
+
+
+
+
+
+
+
+{% block content %}
+ 
+
+
+    <section id="cd-introabc">
+        <div class="selfScale">
+         <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+         <div class="_161wlni"></div>
+        </div>
+         <div id="cd-introabc-taglineabc">
+            <a href="#" class="cd-btn ripple">更多图片</a>
+         </div> <!-- #cd-intro-taglineabc -->
+    </section> <!-- #cd-intro -->
+
+
+        
+
+
+
+
+
+
+    <div class="cd-secondary-navabc">
+        <a href="#0" class="cd-secondary-navabc-trigger">Menu<span></span></a> <!-- button visible on small devices -->
+        <nav>
+            <ul>
+                <li style="margin-left: 2em;">
+                    <a href="#cd-placeholder-1">
+                        <b>主题</b>
+                        
+                    </a>
+                </li>
+               
+                <li style="margin-left: 2em;">
+                    <a href="#cd-placeholder-3">
+                        <b>详情</b>
+                        
+                    </a>
+                </li>
+                <li style="margin-left: 2em;">
+                    <a href="#cd-placeholder-4">
+                        <b>评价</b>
+                        
+                    </a>
+                </li>
+           
+               
+
+            </ul>
+        </nav>
+       
+    </div> <!-- .cd-secondary-navabc -->
+
+
+
+
+
+
+      <section class="container clearfix">   
+        <div class="row">
+          <div class="left-col">
+            <section id="cd-placeholder-1" class="cd-section cd-container">
+            <h2>{{ post.title }}</h2>
+            <p>分类：<a href="{% url 'blog:category' post.category.pk %}">{{ post.category.name }}</a></p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <p><a href="#">作者：{{ post.author }}</a></p>
+                </div>
+                <div class="col-md-2"><p><a href="#cd-placeholder-4"><i class="fa fa-thumbs-o-up"></i>评价{{ post.comment_set.count }} </a></p></div>
+                <div class="col-md-4"> <p><a href="#"><i class="fa fa-paw"></i>阅读{{ post.views }}</a></p></div>
+            </div>
+            
+            
+           
+           
+           <div class="row"> <h3>{{ post.body|safe }}</h3></div>
+     
+
+              
+        </section> 
+
+
+        
+
+        <section id="cd-placeholder-3" class="cd-section cd-container">
+            <h2>内容详情</h2>
+            {% autoescape off %}
+                    {{post.content}}
+                {% endautoescape %}
+        </section> <!-- #cd-placeholder-3 -->
+
+
+
+
+
+
+        <section id="cd-placeholder-4" class="cd-section cd-container">
+            <h2>评论</h2>
+          
+        <!-- 来必力City版安装代码 -->
+        <div id="lv-container" data-id="city" data-uid="MTAyMC8zODQ3Ni8xNTAwNA==">
+        <script type="text/javascript">
+           (function(d, s) {
+               var j, e = d.getElementsByTagName(s)[0];
+
+               if (typeof LivereTower === 'function') { return; }
+
+               j = d.createElement(s);
+               j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+               j.async = true;
+
+               e.parentNode.insertBefore(j, e);
+           })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+        </div>
+        <!-- City版安装代码已完成 -->
+
+      </section>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+        
+        
+        

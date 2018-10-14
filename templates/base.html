@@ -1,0 +1,485 @@
+{% load staticfiles %}
+{% load static %}
+{% load blog_tags %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+         <title>{% block title %}拇指头条|本地高分头条{% endblock %}</title>
+        
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="baidu-site-verification" content="rWFC7H0Ycr" /> <!-- 百度站点HTML标签验证 -->
+
+
+        
+       <!-- 富文本编辑器CDN --> 
+      <script src="//cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+
+ <!-- blog继承 -->  
+
+        <!--jiben主框架样式-->
+        <!--[if lte IE 8]><script src="{% static 'blog/js/product1/jiben/ie/html5shiv.js' %}"></script><![endif]-->
+        <link rel="stylesheet" href= "{% static 'blog/css/product1/jiben/main.css' %}" />
+        <!--[if lte IE 9]><link rel="stylesheet" href= "{% static 'blog/css/product1/jiben/ie9.css' %}" /><![endif]-->
+        <!--[if lte IE 8]><link rel="stylesheet" href= "{% static 'blog/css/product1/jiben/ie8.css' %}" /><![endif]-->
+
+
+        <!--bootstrap样式-->
+        <link href= "{% static 'blog/css/bootstrap/bootstrap.css' %}" rel="stylesheet" media="screen">
+        <script src="{% static 'blog/js/bootstrap/jquery.js' %}"></script>
+        <script src="{% static 'blog/js/bootstrap/bootstrap.min.js' %}"></script>
+
+        <!-- font-awesome cdn字体图标 -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+         <!-- 按钮波纹 -->
+        <link href="{% static 'blog/css/product1/jiben/ripple.css' %}" rel="stylesheet">
+
+
+        <!-- list -->
+            <script src="{% static "list/js/modernizr.custom.js" %}"></script>
+
+
+
+
+        <!-- detail继承 -->
+            <link rel="stylesheet" href="{% static "detail/css/reset.css"  %}"> <!-- CSS reset -->
+            <link rel="stylesheet" href="{% static "detail/css/style.css"  %}"> <!-- Resource style -->
+            <script src="{% static "detail/js/modernizr.js" %}"></script> <!-- Modernizr -->
+
+
+        <style type="text/css">
+           
+                span.highlighted {
+                    color: #f76d53;  
+                }
+           
+        </style>
+
+
+
+        <!-- input下拉地区选择 -->
+        <link rel="stylesheet" href="{% static "blog/css/dts/aiainput/kuCity.css" %}">
+
+        <!--页面加载start-->
+        <link rel="stylesheet" type="text/css" href="{% static "blog/css/zujian/loading/loader.css" %}">
+
+
+        <!-- 图钉插件开始 -->
+                <link rel="stylesheet" type="text/css" href="{% static "blog/css/product1/tuding/style.css" %}"/>
+        <!-- 图钉插件结束 -->
+
+
+
+       
+        <!--Youtube like progressbar code start-->
+        <style>
+        #progress {
+        position: fixed;
+        z-index: 2147483647;
+        top: 0;
+        left: -6px;
+        width: 1%;
+        height: 4px;
+        background: linear-gradient(90deg, #ff1020 0%,#ff254b 50%, #ffa200 100%);
+        -moz-border-radius: 1px;
+        -webkit-border-radius: 1px;
+        border-radius: 1px;
+        -moz-transition: width 10s ease-out,opacity 5s linear;
+        -ms-transition: width 10s ease-out,opacity 5s linear;
+        -o-transition: width 10s ease-out,opacity 5s linear;
+        -webkit-transition: width 10s ease-out,opacity 5s linear;
+        transition: width 10s ease-out,opacity 5s linear;
+        }
+        #progress dd, #progress dt {
+        position: absolute;
+        top: 0;
+        height: 2px;
+        -moz-box-shadow: #ff2a48 1px 0 6px 1px;
+        -ms-box-shadow: #ff2a48 1px 0 6px 1px;
+        -webkit-box-shadow: #ff2a48 1px 0 6px 1px;
+        box-shadow: #ff2a48 1px 0 6px 1px;
+        -moz-border-radius: 100%;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        }
+        #progress dt {
+        opacity: .6;
+        width: 180px;
+        right: -80px;
+        clip: rect(-6px,90px,14px,-6px);
+        }
+        #progress dd {
+        opacity: .6;
+        width: 20px;
+        right: 0;
+        clip: rect(-6px,22px,14px,10px);
+        }
+
+
+
+
+
+          ._eoh76qi {
+              position: relative !important;
+              padding: 1px;
+              height: 500px;
+              background-size: cover !important;
+              width: 100% !important;
+              background-repeat: no-repeat !important;
+              transition: opacity 1s !important;
+          }
+
+
+
+          @media (min-width: 744px){
+          ._eoh76qi {
+              position: relative !important;
+              left: auto !important;
+              background-position: center top !important;
+          }
+
+
+
+          }
+
+
+
+</style>
+
+
+
+        <script>
+        jQuery(document).ready(function() {
+        jQuery("body").append(jQuery("<div><dt/><dd/></div>").attr("id", "progress"));
+        jQuery("#progress").width(100+ "%");
+        jQuery("#progress").width("101%").delay(800).fadeOut(2000, function() {
+        jQuery(this).remove();
+        });
+        });
+        </script>
+        <!--Youtube like progressbar code end-->
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="single" >
+
+
+
+<nav style="border-bottom: 1px solid #ddd;" class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+       <a class="navbar-brand" href="/">
+                <i class="fa fa-thumbs-o-up fa-2x"></i> 拇指头条
+              </a>
+    </div>
+    <div>
+      
+        <!--向右对齐-->
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                 我的信息
+                </a>
+
+                <ul class="dropdown-menu">
+                    {% if request.user.is_authenticated %}
+                               <li><li><li> <a style="cursor:pointer;" data-toggle="modal" data-target="#myModal2">{{ request.user.first_name }}</a></li>
+                                <li><li><a style="cursor:pointer;" href="{% url "logout" %}">注销</a></li>
+                                  {% else %}
+                                <li><a style="cursor:pointer;" data-toggle="modal" data-target="#myModal2">登录</a></li>
+                   {% endif %}
+                    <li class="divider"></li>
+                    <li><a href="/list" target="_blank">全部头条</a></li>
+                                 <li><a href="/home" target="_blank">黄金眼</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="tanchuangnanniu" class="close" data-dismiss="modal" aria-label="Close">
+            <svg viewBox="0 0 24 24" role="img" aria-label="关闭" focusable="false" style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);">
+            <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd">
+            </path>
+            </svg>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        <div class="container">
+      <div class="row">
+        <h2 class="shaixuanfont" style="display: block; text-align: center;">创造你的1699</h2>
+      </div>
+        
+         <div class="row">
+            <div class="shaixuanlist">        
+            <div role="separator" class="divider"></div>
+            {% if request.user.is_authenticated %}
+                <h3 style="font-weight: 600; font-size: 16px; padding: 1em;">{{ request.user.first_name }}</h3>
+                <div><a href="{% url "logout" %}">注销</a></div>
+                {% else %}
+                <div><a href="{% url "login" %}">登录</a></div>
+                <div><a href="{% url "register" %}">注册</a></div>
+            {% endif %}
+
+
+           {% if request.user.is_authenticated %}
+                            
+              <div {% if section == "edit" %} class="selected" {% endif %}>
+                  <a href="{% url "edit" %}">资料设置</a>
+              </div>
+              <div {% if section == "images" %} {{ request.user.photo }} class="selected" {% endif %}>
+                  <a href="#">图像</a>
+              </div>
+              <div {% if section == "people" %} class="selected" {% endif %}>
+                  <a href="#">用户</a>
+              </div>
+                            
+            {% endif %}
+         </div>
+         </div> 
+
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+               
+
+
+<!-- 内容继承 -->
+
+<!-- Wrapper -->
+<div id="wrapper" style="background-color: #ffffff;">
+    {% block content %} {% endblock %}
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 底部品牌继承 -->
+
+      <!-- Footer -->
+        <footer class="footer ">
+        <div class="container">
+          <div class="row footer-top">
+            <div class="col-md-6 col-lg-6">
+              <h4>
+               
+              </h4>
+              <p></p>
+            </div>
+            <div class="col-md-6  col-lg-5 col-lg-offset-1">
+              <div class="row about" aria-busy="false">
+               
+                <div class="col-sm-3">
+                  <h4>栏目</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="/hr/">拇指头条</a></li>
+                    <li><a href="mailto:admin@bootcss.com">黄金眼</a></li>
+                    <li><a href="/hr/">故事集</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3">
+                  <h4>关于我们</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="http://www.golaravel.com/" target="_blank">联系我们</a></li>
+                    <li><a href="http://www.ghostchina.com/" target="_blank">最新招聘</a></li>
+                    <li><a href="http://www.bootcdn.cn/" target="_blank">拇指理念</a></li>
+                    <li><a href="https://www.return.net/" target="_blank">指南</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-3">
+                  <h4>商家合作</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="https://www.jdcloud.com/" target="_blank">素材</a></li>
+                    <li><a href="https://www.upyun.com" target="_blank">城市入驻</a></li>
+                    <li><a href="https://www.upyun.com" target="_blank">商家入驻</a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <hr>
+          <div class="row footer-bottom">
+            <ul class="list-inline text-center">
+              <li><a href="http://www.miibeian.gov.cn/" target="_blank">黔ICP备11008151号</a></li><li>京公网安备11010802014853</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+
+
+
+
+
+
+
+
+
+
+<!-- detail继承 -->
+
+  <!--bootstrap select2筛选初始化插件 -->
+            <script>
+              $(document).ready(function () {
+                var mySelect = $('#first-disabled2');
+
+                $('#special').on('click', function () {
+                  mySelect.find('option:selected').prop('disabled', true);
+                  mySelect.selectpicker('refresh');
+                });
+
+                $('#special2').on('click', function () {
+                  mySelect.find('option:disabled').prop('disabled', false);
+                  mySelect.selectpicker('refresh');
+                });
+              });
+            </script>
+
+
+            <!-- tab轮播开始 -->
+            <link rel="stylesheet" type="text/css" href= "{% static 'blog/css/dts/bootstrap-tabslider/tabs.css' %}" />
+            <link rel="stylesheet" type="text/css" href= "{% static 'blog/css/dts/bootstrap-tabslider/tabstyles.css' %}"  />
+            <!-- tab轮播插件 -->
+            <script src="{% static 'blog/js/dts/bootstrap-tabslider/cbpFWTabs.js' %}"></script>
+            <script>
+                (function() {
+
+                    [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+                        new CBPFWTabs( el );
+                    });
+
+                })();
+            </script>
+
+
+            <!-- 时间插件开始 -->
+            <link href="{% static 'blog/css/product1/shijian/datepicker.css' %}" rel="stylesheet">
+            <!-- 时间插件开始
+             ================================================== -->
+            <script src="{% static 'blog/js/product1/shijian/bootstrap-datepicker.js' %}"></script>
+            <script>
+                var nowTemp = new Date();
+                var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+                 
+                var checkin = $('#dpd1').datepicker({
+                  onRender: function(date) {
+                    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+                  }
+                }).on('changeDate', function(ev) {
+                  if (ev.date.valueOf() > checkout.date.valueOf()) {
+                    var newDate = new Date(ev.date)
+                    newDate.setDate(newDate.getDate() + 1);
+                    checkout.setValue(newDate);
+                  }
+                  checkin.hide();
+                  $('#dpd2')[0].focus();
+                }).data('datepicker');
+                var checkout = $('#dpd2').datepicker({
+                  onRender: function(date) {
+                    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+                  }
+                }).on('changeDate', function(ev) {
+                  checkout.hide();
+                }).data('datepicker');
+
+            </script>
+
+
+            <!-- jiben主框架js -->
+                <script src="{% static 'blog/js/product1/jiben/jquery.min.js' %}"></script>
+                <script src="{% static 'blog/js/product1/jiben/skel.min.js' %}"></script>
+                <script src="{% static 'blog/js/product1/jiben/util.js' %}"></script>
+                <!--[if lte IE 8]><script src="{% static 'blog/js/jiben/product1/ie/respond.min.js' %}"></script><![endif]-->
+                <script src="{% static 'blog/js/product1/jiben/main.js' %}"></script>
+
+
+
+
+
+
+
+          <!-- detail继承 -->
+          <script src="{% static "detail/js/main.js" %}"></script> <!-- Resource jQuery -->
+
+
+
+
+          <!-- 图钉插件开始 -->
+
+
+              <!-- Include jQuery and jquery.pin -->
+              <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+              <script src="{% static "blog/js/product1/tuding/jquery.pin.js" %}"></script>
+
+
+              <!-- PIN ALL THE THINGS! -->
+              <script>
+                $(".pinned").pin({containerSelector: ".container", minWidth: 940});
+              </script>
+              <!-- That's all - pretty easy, right? -->
+
+          <!-- 图钉插件结束 -->
+
+
+           
+      <!-- 地区选择弹出插件 -->
+              <script src="{% static "blog/js/dts/aiainput/kuCity.js" %}"></script>
+              <script>
+              $('.search').kuCity();
+              $('.search3').kuCity();
+              </script>
+
+
+
+
+<!-- 加载更多插件 -->
+
+
+
+
+
+
+
+
+</body>
+</html>

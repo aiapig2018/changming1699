@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}登录（注册）成功{% endblock %}
+
+
+
+
+
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper" style="background-color: #ffffff;">
+
+
+
+
+                <div class="container">
+                    <div id="main" class="gradient">
+                            <article class="post" style="border: none;">
+                                
+                                	 <h1>你已经登录成功，欢迎回家</h1>
+                                
+
+							  <p> 
+                                你可以 <a href="{% url "edit" %}">管理你的个人信息</a> 
+                                或者 <a href="{% url "password_change" %}">修改你的密码</a>.
+                            </p>
+
+            </article><!--end Post -->
+        </div><!-- end main -->
+    </div><!-- end container -->
+
+
+</div>
+
+
+{% endblock %}

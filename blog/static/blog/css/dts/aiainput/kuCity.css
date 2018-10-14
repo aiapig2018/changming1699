@@ -1,0 +1,174 @@
+*{
+    margin:0;
+    padding:0;
+}
+.kucity{
+    color: #484848 !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 10px !important;
+    font-size: .9rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.2px !important;
+    line-height: 22px !important;
+    position: absolute;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px 7px 46px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding:1px;
+    z-index: 10000 !important;
+    background: #ffffff;
+}
+.kucity h3{
+    color: #484848 !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 10px !important;
+    padding: 1em;
+    font-size: 1.2rem !important;
+    letter-spacing: 0.2px !important;
+    line-height: 22px !important;
+}
+.kucity .kucity_nav{
+    font-size:0;
+    padding-top: 0;
+    list-style: none;
+    border-radius: 20px;
+}
+.kucity .kucity_nav li{
+    cursor: pointer;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: -1px;
+    display: inline-block;
+    color:#666;
+    padding: 12px 16px !important;
+    margin: 0 .9em;
+    transition: all .2s;
+    border-radius: 4px;
+}
+.kucity .kucity_nav li.active{
+    background-color: #ff2a48;
+    border-color: #ff2a48;
+    color: #fff;
+}
+
+
+/*kucity_body*/
+
+.kucity .kucity_body{
+    padding:10px 5px;
+    max-height: 230px;
+    overflow-y:auto; 
+}
+.kucity .kucity_body .kucity_item{
+    display: none;    
+}
+.kucity .kucity_body .kucity_item.active{
+    display: block;
+}
+.kucity_item dt, .kucity_item dd{
+    display: inline-block;
+}
+.kucity_item dl{
+    padding:3px 0;
+}
+.kucity_item dt{
+    color: #ff7a55;
+    padding: 0 1em !important;
+    vertical-align: top;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+.kucity_item dd{
+    width:100%;
+}
+.kucity_item dd span{
+    width: 12%;
+    display: inline-block;
+    margin: .5em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    padding: .5em;
+    
+}
+.kucity_item dd span:hover{
+    background-color: rgba(255, 122, 85, 0.2);
+    border-radius: 4px;
+    text-decoration: none;
+    -moz-transition: font-size 0.2s ease;
+    -webkit-transition: font-size 0.2s ease;
+    -ms-transition: font-size 0.2s ease;
+    transition: font-size 0.2s ease;
+}
+
+.kucity .result{
+    list-style: none;
+}
+.kucity .result li{
+    padding: .8em 1em;
+    color: #484848 !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.2px !important;
+    line-height: 22px !important;
+    background-color: #fff;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+}
+.kucity .result li.active, .kucity .result li.active .letter{
+    background-color: rgba(255, 122, 85, 0.2);
+    color:#333;
+}
+.kucity .result li .letter{
+    float:right;
+    color:#999;
+}
+.kucity .result li .noresult{
+    padding:0 8px;
+    color:rgb(253, 130, 27);
+}
+.kucity .result li:hover, .kucity .result li:hover > .letter{
+    background-color: rgba(255, 122, 85, 0.35);
+    color:#333!important;
+}
+
+/*滚动条*/
+.kucity_body::-webkit-scrollbar  
+{  
+    width: 5px;  
+    height: 16px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+.kucity_body::-webkit-scrollbar-track  
+{  
+    border-radius: 10px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+.kucity_body::-webkit-scrollbar-thumb  
+{  
+    border-radius: 5px;  
+    background-color: #dedede;  
+} 
+.kucity_body::-webkit-scrollbar-thumb:hover{
+    background-color: #999;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load highlight %}
+
+{% load static %}
+{% load blog_tags %}
+
+
+{% block content %}
+
+
+{% if error_msg %}
+        <p>{{ error_msg }}</p>
+    {% endif %}
+
+
+
+
+<div id="wrapper" style="background-color: #ffffff;">
+    <div class="container">
+
+        <div class="cd-section"><h2>搜索结果如下</h2></div>
+
+
+   {% if query %}
+        {% for result in page.object_list %}
+                <div id="main" style="padding: 2em 0 0 0;">
+
+
+
+
+
+
+
+
+  <div class="_11wkgye" style="display: block;">
+                    <div class="_siy8gh">
+                    <div class="_2h22gn">
+                        
+                        <div class="_2syc27g">
+                            <div class="_15jw76w" style="border-radius: 4px;">
+                                <div class="_1szwzht">
+                                  <h5><a href="{{ result.object.get_absolute_url }}">{% highlight result.object.title with query %}</a></h5>
+                                </div>
+                            </div>
+
+
+
+                          <div style="margin-bottom:4px">
+                            <div class="_190019aa">
+                              <span class="_hlupyy"><h5>{% highlight result.object.body with query %}</h5>
+                                </span>
+                            </div>
+                          </div>
+
+                        
+                              <div style="margin-bottom:4px">
+                                <div class="_190019zr">
+                                  <span class="_hlupyy">
+                                    <h5>
+                                        <a href="{% url 'blog:category' result.object.category.pk %}">类别：{% highlight result.object.category.name with query %}
+                                        </a>
+                                    </h5>
+                                </span>
+                                </div>
+                              </div>
+
+
+                              <div style="margin-bottom:8px">
+                                <div class="_wbsbxz">
+                                  <div class="_2q1l5fu">
+                                    <span class="_1jj7gf6"><a href="#">发布者：{{ result.object.author }}</a></span>
+                                    <h5><a href="{{ result.object.get_absolute_url }}#comment-area">{{ result.object.comment_set.count }} 评论</a></h5>
+                                        <h5><a href="{{ result.object.get_absolute_url }}" >{{ result.object.views }} 浏览</a></h5>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                        </div>
+                        
+                        
+                        {% empty %}
+                        <div class="alert alert-danger alert-dismissible" role="alert" style="padding: 1em;">
+                                         <h3>头条暂时为0，品味其他频道吧！<h4>试试我们推荐的地区吧！</h4></h3>
+                                    </div>
+                        {% endfor %}
+                    </div>
+                    </div>
+                </div>
+ 
+          <div class="row">
+                          <div class="col-md-12">
+                              {% if is_paginated %}
+                                          <div style="padding: 2em 0;">
+                                              <ul class="pagination">
+                                                  {% if first %}
+                                                      <li><a href="?page=1">1</a></li>
+                                                  {% endif %}
+                                                  {% if left %}
+                                                      {% if left_has_more %}
+                                                          <li><span>...</span></li>
+                                                      {% endif %}
+                                                      {% for i in left %}
+                                                          <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                      {% endfor %}
+                                                  {% endif %}
+                                                  <li class="current"><a href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+                                                  {% if right %}
+                                                      {% for i in right %}
+                                                          <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                      {% endfor %}
+                                                      {% if right_has_more %}
+                                                          <li><span>...</span></li>
+                                                      {% endif %}
+                                                  {% endif %}
+                                                  {% if last %}
+                                                      <li><a href="?page={{ paginator.num_pages }}">{{ paginator.num_pages }}</a></li>
+                                                  {% endif %}
+                                              </ul>
+                                          </div>
+                                      {% endif %}
+                          </div>
+                      </div>
+
+
+
+
+
+
+
+        {% if page.has_previous or page.has_next %}
+            <div>
+                {% if page.has_previous %}
+                    <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous
+                {% if page.has_previous %}</a>{% endif %}
+                |
+                {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next
+                &raquo;{% if page.has_next %}</a>{% endif %}
+            </div>
+        {% endif %}
+    {% else %}
+        请输入村落名/城市/景点
+    {% endif %}
+
+
+
+
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+{% endblock content %}

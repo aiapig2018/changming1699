@@ -1,0 +1,181 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load blog_tags %}
+
+
+   {% if error_msg %}
+        <p>{{ error_msg }}</p>
+    {% endif %}
+
+
+
+
+{% block content %}
+
+ 
+<div id="cd-introabc-taglineabc"> 
+    <div class="cd-secondary-navabc">
+        <a href="#0" class="cd-secondary-navabc-trigger">Menu<span></span></a> <!-- button visible on small devices -->
+
+        <nav>
+            <ul class="shaixuanborder">
+                <li>
+                    <a href="" data-toggle="modal" data-target="#myModal">
+                        筛选
+                    </a>
+                </li>
+                 <li>
+                    <a href="" data-toggle="modal" data-target="#myModal3">
+                        预定
+                    </a>
+                </li>
+            </ul>
+        </nav>
+       
+    </div> <!-- .cd-secondary-navabc -->
+</div> <!-- #cd-intro-taglineabc -->
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="tanchuangnanniu" class="close" data-dismiss="modal" aria-label="Close">
+            <svg viewBox="0 0 24 24" role="img" aria-label="关闭" focusable="false" style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);">
+            <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd">
+            </path>
+            </svg>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        <div class="container">
+        <div class="row">
+            <h2 class="shaixuanfont">按分类</h2>
+            {% get_categories as category_list %}
+            {% for category in category_list %}
+                    <div class="shaixuanlist">
+                      <a href="{% url 'blog:category' category.pk %}">{{ category.name }}</a>                                                              
+                    </div>
+            {% empty %}
+            <div class="no-post">暂时还没有发布的文章！</div>
+            {% endfor %}
+         </div> 
+
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="tanchuangnanniu" class="close" data-dismiss="modal" aria-label="Close">
+            <svg viewBox="0 0 24 24" role="img" aria-label="关闭" focusable="false" style="height: 16px; width: 16px; display: block; fill: rgb(118, 118, 118);">
+            <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd">
+            </path>
+            </svg>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+           预定请联系17138512027
+         </div>      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+        <div id="main" class="gradient">
+            <article class="post" style="border: none;">
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="_c0qx5fd">拇指生活频道</div>  
+                </div> 
+            </div>
+        
+
+                <div class="_11wkgye" style="display: block;">
+                    <div class="_siy8gh">
+                    <div class="_2h22gn">
+                        {% for post in post_list %}
+                        <div class="_2syc27g">
+                            <div class="_15jw76w" style="border-radius: 4px;">
+                                <div class="_1szwzht">
+                                    <a href="{{ post.get_absolute_url }}">
+                                    <div class="_6ikqekk" style="width: 100%; height: 100%; background-image: url({% if post.image %}{{ post.image.url }}{% else %}{% endif %});" >
+                                        </div></a>
+                                        <div class="_1hkka7" style="background-color: rgb(255, 255, 255);">
+                                            <small class="_f7heglr">
+                                                <a href="{% url 'blog:category' post.category.pk %}">{{ post.category.name }}</a>
+                                            </small>
+                                        </div>
+                                </div>
+                            </div>
+                        
+                              <div style="margin-bottom:4px">
+                                <div class="_190019zr">
+                                  <span class="_hlupyy"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></span>
+                                </div>
+                              </div>
+
+
+                              <div style="margin-bottom:8px">
+                                <div class="_wbsbxz">
+                                  <div class="_2q1l5fu">
+                                    <span class="_1jj7gf6">{{ post.excerpt }}</span>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                        </div>
+                        
+                        {% empty %}
+                        <div class="no-post">暂时还没有发布的文章！</div>
+                        {% endfor %}
+                    </div>
+                    </div>
+                </div>
+ 
+
+
+
+            </article><!--end Post -->
+        </div><!-- end main -->
+    </div><!-- end container -->
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+

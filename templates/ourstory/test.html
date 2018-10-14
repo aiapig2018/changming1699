@@ -1,0 +1,107 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load blog_tags %}
+
+
+
+
+
+{% block content %}
+
+    {% if error_msg %}
+        <p>{{ error_msg }}</p>
+    {% endif %}
+ 
+
+   
+
+
+<div class="container">
+        <div id="main" class="gradient">
+            <article class="post" style="border: none;">
+
+
+
+
+            <section>
+
+                        <div class="tabs tabs-style-linemove">
+                    <nav>
+                        <ul>
+                            <li><a href="#section-linemove-1" class=""><span>地区</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="content-wrap">
+                        <!--地区-->  
+                            <section id="section-linemove-1">
+                                <a href="/"  class="" >
+                                    <div style="margin-top: 2px;">
+                                        <div class="_2h22gn">
+                                   {% for post in post_list %}
+                                        <a href="{% url 'story_detail' id=article.id %}">            
+                                        <div class="_1ftjwi4b">
+                                            <div class="_j1qvyg">
+                                            <div class="_1p2m1sm">
+                                                <div class="_1paxf71">
+
+                                                            <div class="_i1d4td">
+                                                                <div class="_9tsxt7">
+                                                                <div>
+                                                                    <div class="_7duv9f5">
+                                                                        <span class="_1ezogpo">
+                                                                    
+                                                                             
+                                                                                   
+                                                                         {{ post.title }}
+                                                                                   
+                                                                                
+
+
+                                                                        </span>
+                                                                    </div>
+                                                                 </div>
+                                                                <div class="_1221viw">
+                                                                 <div class="_sd9w31l"><span class="_1bfef4c">热门搜索</span></div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                       
+
+                                     </a>
+                                     {% empty %}
+                                         暂无分类！
+                                   {% endfor %}
+
+                                </div>
+                            </div>
+                            </a>
+                        </section>
+                      
+
+
+
+
+
+
+
+
+   
+            </article><!--end Post -->
+        </div><!-- end main -->
+    </div><!-- end container -->
+
+
+
+
+
+
+
+{% endblock %}
+
